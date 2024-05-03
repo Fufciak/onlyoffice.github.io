@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JustBibPlease</title>
+        <script
+            type="text/javascript"
+            src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins-ui.js"
+        ></script>
+        <script src="https://unpkg.com/dompurify@3.1.1/dist/purify.min.js"></script>
+
+        <link
+            rel="stylesheet"
+            href="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.css"
+        />
+        <script type="text/javascript" src="scripts/code.js"></script>
+        <style>
+            #main {
+                margin: 0 auto;
+                width: 80%;
+                padding: 10px;
+            }
+
+            #controls {
+                display: flex;
+                margin: 0 auto;
+                width: fit-content;
+                outline: gray solid 2px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #controls div {
+                flex-wrap: wrap;
+                padding: 10px;
+            }
+
+            #form {
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            #formView {
+                text-align: right;
+                margin: auto;
+                width: fit-content; /* Ensure this width is appropriate for your content */
+                padding: 5px 10px;
+            }
+
+            #formView div {
+                display: inline-block;
+                padding: 5px;
+                width: 100%;
+            }
+
+            #authorsView {
+                margin: 0 auto;
+                padding: 5px 0px;
+                display:grid;
+            }
+
+            .author-container {
+                display: inline-flex;
+                padding: 0.25rem;
+                margin: 0 auto;
+            }
+
+            .author-container div {
+                margin: 0.1rem;
+            }
+
+            input:user-invalid {
+                border: none;
+                outline: 2px solid red;
+                border-radius: 5px;
+            }
+
+            .author-container.highlighted {
+                border: none;
+                outline: 2px solid #0b6e4f;
+                border-radius: 5px;
+            }
+            #formView select,
+            #formView input {
+                width: 70%;
+            }
+
+            textarea {
+                resize: vertical;
+            }
+        </style>
+    </head>
+
+    <body
+        style="
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+        "
+    >
+        <div
+            id="JBP"
+            style="
+                margin: auto;
+                padding: 10px;
+                height: max-content;
+                width: max-content;
+            "
+        >
+            No API's just put down the info and get the result. @Fufciak
+        </div>
+        <div id="main">
+            <div id="controls">
+                <div>
+                    <label for="citingWhat">What are you citing?</label>
+                    <select id="citingWhat">
+                        <option value="null">---</option>
+                        <option value="book">Book</option>
+                        <option value="chapter">Chapter</option>
+                        <option value="dbook">Digital Book</option>
+                        <option value="article">Article</option>
+                        <option value="web">Web Page</option>
+                        <option value="other">Other(*)</option>
+                    </select>
+                </div>
+            </div>
+            <div id="form">
+                <form onsubmit="return false">
+                    <div id="authorsView"></div>
+                    <div id="formView"></div>
+                    <div id="result"></div>
+                    <div
+                        style="
+                            margin: auto;
+                            padding: 10px;
+                            height: max-content;
+                            width: max-content;
+                        "
+                    >
+                        <button id="generate">Generate</button>
+                        <input type="submit" name="submit." />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
